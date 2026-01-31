@@ -46,9 +46,9 @@ int main(int argc, char *argv[])
     long int vector_val;
 
     // parsing for input matrix
-    for (int row = 0; row < n_row1; row++)
+    for (long int row = 0; row < n_row1; row++)
     {
-        for (int column = 0; column < n_col1; column++)
+        for (long int column = 0; column < n_col1; column++)
         {
             if (fscanf(matFile, "%ld,", &matrix_val) != 1)
             {
@@ -72,10 +72,10 @@ int main(int argc, char *argv[])
     // TODO: Perform the matrix-vector multiplication
     long int *result_array = (long int *)malloc((n_row1) * sizeof(long int)); // size of resultant array
 
-    for (int row = 0; row < n_row1; row++)
+    for (long int row = 0; row < n_row1; row++)
     {
         long int row_sum = 0;
-        for (int column = 0; column < n_col1; column++)
+        for (long int column = 0; column < n_col1; column++)
         {
             // calculate matrix multiplication
             row_sum += input_matrix[row * n_col1 + column] * input_vector[column];
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     }
 
     // TODO: Write the output CSV file
-    for (int row = 0; row < n_row1; row++)
+    for (long int row = 0; row < n_row1; row++)
     {
         fprintf(outputFile, "%ld", result_array[row]);
 
