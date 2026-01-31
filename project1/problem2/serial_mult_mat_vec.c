@@ -50,7 +50,10 @@ int main(int argc, char *argv[])
     {
         for (int column = 0; column < n_col1; column++)
         {
-            fscanf(matFile, "%ld%*[, \n]", &matrix_val);
+            if (fscanf(matFile, "%ld,", &matrix_val) != 1)
+            {
+                fscanf(matFile, "%ld", &matrix_val);
+            }
             input_matrix[row * n_col1 + column] = matrix_val;
         }
     }
@@ -58,7 +61,11 @@ int main(int argc, char *argv[])
     // parsing for input matrix
     for (int column = 0; column < n_row2; column++)
     {
-        fscanf(vecFile, "%ld%*[, \n]", &vector_val);
+        if (fscanf(vecFile, "%ld,", &vector_val) != 1)
+        {
+            fscanf(vecFile, "%ld", &vector_val);
+        }
+
         input_vector[column] = vector_val;
     }
 
